@@ -32,7 +32,7 @@ module LibertyBuildpack::Util
     def initialize(version, allow_wildcards = true)
       @version = version
       @version = WILDCARD if !@version && allow_wildcards
-
+      print "----> version: #{version} ....\n"
       major, tail = major_or_minor_and_tail @version
       print "----> major: #{major} ....\n"
       print "----> tail: #{tail} ....\n"
@@ -112,11 +112,11 @@ module LibertyBuildpack::Util
       else
         raise "Invalid version '#{s}': must not end in '_'" if s[-1] == '_'
 
-        if s.include? '_'
-          tokens = s.match(/^([^\_]+)(?:_(.*))?/)
-        else
-          tokens = s.match(/^([^\.]+)(?:.(.*))?/)
-        end
+        # if s.include? '_'
+        tokens = s.match(/^([^\_]+)(?:_(.*))?/)
+        # else
+        # tokens = s.match(/^([^\.]+)(?:.(.*))?/)
+        # end
 
         micro, qualifier = tokens[1..-1]
 
