@@ -34,14 +34,14 @@ module LibertyBuildpack::Util
       @version = WILDCARD if !@version && allow_wildcards
 
       major, tail = major_or_minor_and_tail @version
-      print "----> major: #{major} ...."
-      print "----> tail: #{tail} ...."
+      print "----> major: #{major} ....\n"
+      print "----> tail: #{tail} ....\n"
       minor, tail = major_or_minor_and_tail tail
-      print "----> minor: #{minor} ...."
-      print "----> tail: #{tail} ...."
+      print "----> minor: #{minor} ....\n"
+      print "----> tail: #{tail} ....\n"
       micro, qualifier = micro_and_qualifier tail
-      print "----> qualifier: #{minor} ...."
-      print "----> tail: #{tail} ...."
+      print "----> qualifier: #{minor} ....\n"
+      print "----> tail: #{tail} ....\n"
 
       concat [major, minor, micro, qualifier]
       validate allow_wildcards
