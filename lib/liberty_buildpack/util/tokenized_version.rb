@@ -40,8 +40,8 @@ module LibertyBuildpack::Util
       print "----> minor: #{minor} ....\n"
       print "----> tail: #{tail} ....\n"
       micro, qualifier = micro_and_qualifier tail
-      print "----> qualifier: #{minor} ....\n"
-      print "----> tail: #{tail} ....\n"
+      print "----> micro: #{micro} ....\n"
+      print "----> qualifier: #{qualifier} ....\n"
 
       concat [major, minor, micro, qualifier]
       validate allow_wildcards
@@ -112,11 +112,7 @@ module LibertyBuildpack::Util
       else
         raise "Invalid version '#{s}': must not end in '_'" if s[-1] == '_'
 
-        # if s.include? '_'
         tokens = s.match(/^([^\_]+)(?:_(.*))?/)
-        # else
-        # tokens = s.match(/^([^\.]+)(?:.(.*))?/)
-        # end
 
         micro, qualifier = tokens[1..-1]
 
