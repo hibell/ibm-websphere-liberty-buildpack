@@ -33,9 +33,15 @@ module LibertyBuildpack::Util
       @version = version
       @version = WILDCARD if !@version && allow_wildcards
 
-      major, tail      = major_or_minor_and_tail @version
-      minor, tail      = major_or_minor_and_tail tail
+      major, tail = major_or_minor_and_tail @version
+      print "----> major: #{major} ...."
+      print "----> tail: #{tail} ...."
+      minor, tail = major_or_minor_and_tail tail
+      print "----> minor: #{minor} ...."
+      print "----> tail: #{tail} ...."
       micro, qualifier = micro_and_qualifier tail
+      print "----> qualifier: #{minor} ...."
+      print "----> tail: #{tail} ...."
 
       concat [major, minor, micro, qualifier]
       validate allow_wildcards
